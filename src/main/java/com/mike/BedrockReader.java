@@ -22,12 +22,12 @@ public class BedrockReader {
 
         if (bedrockType == BedrockType.BEDROCK_FLOOR) {
             if (y == bedrockType.min) return true;
-            if (y >= bedrockType.max) return false;
+            if (y > bedrockType.max) return false;
 
             probabilityValue = MathHelper.lerpFromProgress(y, bedrockType.min, bedrockType.max, 1.0, 0.0);
         } else if (bedrockType == BedrockType.BEDROCK_ROOF) {
             if (y == bedrockType.min) return true;
-            if (y <= bedrockType.max) return false;
+            if (y < bedrockType.max) return false;
 
             probabilityValue = MathHelper.lerpFromProgress(y, bedrockType.max, bedrockType.min, 1.0, 0.0);
         }

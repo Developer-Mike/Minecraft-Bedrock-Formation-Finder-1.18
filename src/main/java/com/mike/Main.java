@@ -11,13 +11,17 @@ public class Main {
     public static void main(String[] args) {
         long seed = Long.parseLong(args[0]);
 
-        BedrockReader.BedrockType bedrockType = switch (args[1]) {
+        String[] coordinateString = args[1].split(":");
+        int x = Integer.parseInt(coordinateString[0]);
+        int z = Integer.parseInt(coordinateString[1]);
+
+        BedrockReader.BedrockType bedrockType = switch (args[2]) {
             case "floor" -> BedrockReader.BedrockType.BEDROCK_FLOOR;
             case "roof" -> BedrockReader.BedrockType.BEDROCK_ROOF;
             default -> BedrockReader.BedrockType.BEDROCK_FLOOR;
         };
 
-        Arrays.stream(args).skip(2).forEach((arg) -> blocks.add(new BedrockBlock(arg)));
+        Arrays.stream(args).skip(3).forEach((arg) -> blocks.add(new BedrockBlock(arg)));
         blocks.sort((b1, b2) -> {
             switch (bedrockType) {
                 case BEDROCK_FLOOR -> {
@@ -34,8 +38,6 @@ public class Main {
 
         bedrockReader = new BedrockReader(seed, bedrockType);
 
-        int x = 0;
-        int z = 0;
         Direction direction = Direction.RIGHT;
         int stepsToTake = 1;
         int stepsTaken = 0;

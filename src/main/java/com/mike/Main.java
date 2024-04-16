@@ -2,7 +2,6 @@ package com.mike;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Main {
     static ArrayList<BedrockBlock> blocks = new ArrayList<>();
@@ -80,7 +79,7 @@ public class Main {
 
     static boolean checkFormation(int x, int z) {
         for (BedrockBlock block : blocks) {
-            if (!bedrockReader.isBedrock(x + block.x, block.y, z + block.z)) return false;
+            if (block.shouldBeBedrock != bedrockReader.isBedrock(x + block.x, block.y, z + block.z)) return false;
         }
         return true;
     }

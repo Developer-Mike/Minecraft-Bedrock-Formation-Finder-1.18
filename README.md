@@ -1,3 +1,6 @@
+> [!important]
+> Check out [Developer-Mike/minecraft-bedrock-generator](https://github.com/Developer-Mike/minecraft-bedrock-generator) for an updated version.
+
 # Minecraft-Bedrock-Formation-Finder-1.18
 Tool to find any bedrock formation in a 1.18 minecraft world.
 
